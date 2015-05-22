@@ -4,19 +4,18 @@
 #  /usr/include/KF5
 #  /usr/share/kf5
 # - package manual pages
-%define		kdeframever	5.4
+%define		kdeframever	5.10
 %define		qtver		5.3.2
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.4.0
+Version:	5.10.0
 Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	a9b6de67f41ac6c988506b79dcaa7097
-Patch0:		kf5-kdoctools-absolute.patch
+# Source0-md5:	2b1c8515da109dea0c5cf8894768f72b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -55,7 +54,6 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 
 %prep
 %setup -q -n %{kfname}-%{version}
-%patch0 -p1
 
 %build
 install -d build
@@ -71,13 +69,15 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build/ install \
         DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{kfname}5
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f %{kfname}5.lang
 %defattr(644,root,root,755)
 %doc README.md
 %attr(755,root,root) %{_bindir}/checkXML5
