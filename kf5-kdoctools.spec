@@ -1,18 +1,18 @@
 # TODO:
 # - runtime Requires if any
 # - package manual pages
-%define		kdeframever	5.13
+%define		kdeframever	5.19
 %define		qtver		5.3.2
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.13.0
+Version:	5.19.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	1801a3e97110d734178814b5cd45059a
+# Source0-md5:	6c05f13822f918abf26b56510861d392
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -21,9 +21,12 @@ BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	docbook-dtd45-xml
+BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-karchive-devel >= %{version}
+BuildRequires:	kf5-ki18n-devel >= %{version}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{version}
+BuildRequires:	perl-URI
 BuildRequires:	polkit-qt-1-devel
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
