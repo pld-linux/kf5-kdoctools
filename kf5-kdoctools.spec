@@ -2,13 +2,13 @@
 # - runtime Requires if any
 # - package manual pages
 %define		kdeframever	5.24
-%define		qtver		5.3.2
+%define		qtver		5.4.0
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
 Version:	5.24.0
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -46,6 +46,8 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	Qt5Core-devel >= %{qtver}
+Requires:	cmake >= 2.6.0
 
 %description devel
 Header files for %{kfname} development.
