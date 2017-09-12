@@ -1,18 +1,18 @@
 # TODO:
 # - runtime Requires if any
 # - package manual pages
-%define		kdeframever	5.24
+%define		kdeframever	5.38
 %define		qtver		5.4.0
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.24.0
-Release:	2
+Version:	5.38.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	0826ac71e01ed1d343e6e1bb5e4fe438
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	8ff1848a3cb7c6a5616304e869ed1ecd
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -85,16 +85,18 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md
 %attr(755,root,root) %{_bindir}/checkXML5
 %attr(755,root,root) %{_bindir}/meinproc5
-%{_libdir}/libKF5XsltKde.a
+%attr(755,root,root) %ghost %{_libdir}/libKF5DocTools.so.5
+%attr(755,root,root) %{_libdir}/libKF5DocTools.so.*.*
 %{_docdir}/HTML/*/kdoctools5-common
 %dir %{_datadir}/kf5/kdoctools
 %{_datadir}/kf5/kdoctools/customization
 %{_mandir}/man1/checkXML5.1*
+%{_mandir}/man1/meinproc5.1*
 %{_mandir}/man7/kf5options.7*
 %{_mandir}/man7/qt5options.7*
-%{_mandir}/man8/meinproc5.8*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF5/XsltKde
+%{_includedir}/KF5/KDocTools
 %{_libdir}/cmake/KF5DocTools
+%attr(755,root,root) %{_libdir}/libKF5DocTools.so
