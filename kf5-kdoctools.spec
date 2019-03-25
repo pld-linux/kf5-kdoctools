@@ -1,18 +1,18 @@
 # TODO:
 # - runtime Requires if any
 # - package manual pages
-%define		kdeframever	5.53
+%define		kdeframever	5.56
 %define		qtver		5.9.0
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.53.0
+Version:	5.56.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	905d494671f33de9827c9a4467c0bdc7
+# Source0-md5:	af377ccda2cabcbfb352422a15923cb3
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -26,6 +26,7 @@ BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-karchive-devel >= %{version}
 BuildRequires:	kf5-ki18n-devel >= %{version}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{version}
+BuildRequires:	ninja
 BuildRequires:	perl-URI
 BuildRequires:	polkit-qt-1-devel
 BuildRequires:	qt5-linguist >= %{qtver}
@@ -61,16 +62,14 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 %build
 install -d build
 cd build
-%cmake \
+%cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} -C build/ install \
-        DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kfname}5
 
