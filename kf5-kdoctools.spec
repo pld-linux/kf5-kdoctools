@@ -1,18 +1,18 @@
 # TODO:
 # - runtime Requires if any
 # - package manual pages
-%define		kdeframever	5.56
+%define		kdeframever	5.59
 %define		qtver		5.9.0
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.56.0
+Version:	5.59.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	af377ccda2cabcbfb352422a15923cb3
+# Source0-md5:	4136581e0ee3880e7d158a8b41768da6
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -93,6 +93,44 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/meinproc5.1*
 %{_mandir}/man7/kf5options.7*
 %{_mandir}/man7/qt5options.7*
+%lang(ca) %{_mandir}/ca/man1/checkXML5.1*
+%lang(ca) %{_mandir}/ca/man1/meinproc5.1*
+%lang(ca) %{_mandir}/ca/man7/kf5options.7*
+%lang(ca) %{_mandir}/ca/man7/qt5options.7*
+%lang(de) %{_mandir}/de/man1/checkXML5.1*
+%lang(de) %{_mandir}/de/man1/meinproc5.1*
+%lang(de) %{_mandir}/de/man7/kf5options.7*
+%lang(de) %{_mandir}/de/man7/qt5options.7*
+%lang(es) %{_mandir}/es/man1/checkXML5.1*
+%lang(es) %{_mandir}/es/man1/meinproc5.1*
+%lang(es) %{_mandir}/es/man7/kf5options.7*
+%lang(es) %{_mandir}/es/man7/qt5options.7*
+%lang(it) %{_mandir}/it/man1/checkXML5.1*
+%lang(it) %{_mandir}/it/man1/meinproc5.1*
+%lang(it) %{_mandir}/it/man7/kf5options.7*
+%lang(it) %{_mandir}/it/man7/qt5options.7*
+%lang(nl) %{_mandir}/nl/man1/checkXML5.1*
+%lang(nl) %{_mandir}/nl/man1/meinproc5.1*
+%lang(nl) %{_mandir}/nl/man7/kf5options.7*
+%lang(nl) %{_mandir}/nl/man7/qt5options.7*
+%lang(pt) %{_mandir}/pt/man1/checkXML5.1*
+%lang(pt) %{_mandir}/pt/man1/meinproc5.1*
+%lang(pt) %{_mandir}/pt/man7/kf5options.7*
+%lang(pt) %{_mandir}/pt/man7/qt5options.7*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/checkXML5.1*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/meinproc5.1*
+%lang(pt_BR) %{_mandir}/pt_BR/man7/kf5options.7*
+%lang(pt_BR) %{_mandir}/pt_BR/man7/qt5options.7*
+%lang(ru) %{_mandir}/ru/man1/checkXML5.1*
+%lang(ru) %{_mandir}/ru/man7/qt5options.7*
+%lang(sv) %{_mandir}/sv/man1/checkXML5.1*
+%lang(sv) %{_mandir}/sv/man1/meinproc5.1*
+%lang(sv) %{_mandir}/sv/man7/kf5options.7*
+%lang(sv) %{_mandir}/sv/man7/qt5options.7*
+%lang(uk) %{_mandir}/uk/man1/checkXML5.1*
+%lang(uk) %{_mandir}/uk/man1/meinproc5.1*
+%lang(uk) %{_mandir}/uk/man7/kf5options.7*
+%lang(uk) %{_mandir}/uk/man7/qt5options.7*
 
 %files devel
 %defattr(644,root,root,755)
