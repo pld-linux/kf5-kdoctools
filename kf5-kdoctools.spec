@@ -1,18 +1,18 @@
 # TODO:
 # - runtime Requires if any
 # - package manual pages
-%define		kdeframever	5.59
+%define		kdeframever	5.62
 %define		qtver		5.9.0
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.59.0
+Version:	5.62.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	4136581e0ee3880e7d158a8b41768da6
+# Source0-md5:	642b11be9cdb963fa3c8515cc6b6c5f1
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -105,6 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(es) %{_mandir}/es/man1/meinproc5.1*
 %lang(es) %{_mandir}/es/man7/kf5options.7*
 %lang(es) %{_mandir}/es/man7/qt5options.7*
+%lang(it) %{_mandir}/id/man1/checkXML5.1*
 %lang(it) %{_mandir}/it/man1/checkXML5.1*
 %lang(it) %{_mandir}/it/man1/meinproc5.1*
 %lang(it) %{_mandir}/it/man7/kf5options.7*
