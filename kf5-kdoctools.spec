@@ -2,7 +2,7 @@
 # - runtime Requires if any
 # - package manual pages
 %define		kdeframever	5.86
-%define		qtver		5.14.0
+%define		qtver		5.15.2
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
@@ -15,7 +15,7 @@ Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{v
 # Source0-md5:	0b2c7d8d851a681c73eeaa71980c4625
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	cmake >= 3.5
+BuildRequires:	cmake >= 3.16
 BuildRequires:	docbook-dtd45-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
@@ -48,7 +48,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	Qt5Core-devel >= %{qtver}
-Requires:	cmake >= 3.5
+Requires:	cmake >= 3.16
 
 %description devel
 Header files for %{kfname} development.
