@@ -35,6 +35,7 @@ BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	Qt5Core >= %{qtver}
+Requires:	docbook-style-xsl
 Requires:	kf5-dirs
 Requires:	kf5-karchive >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
