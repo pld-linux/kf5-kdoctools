@@ -4,18 +4,18 @@
 # TODO:
 # - runtime Requires if any
 # - package manual pages
-%define		kdeframever	5.113
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.113.0
+Version:	5.114.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	1066c0b7878f5c920928954570e39730
+# Source0-md5:	aa64a9dc95881d7675380976888e6841
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
