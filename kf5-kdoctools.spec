@@ -4,20 +4,20 @@
 # TODO:
 # - runtime Requires if any
 # - package manual pages
-%define		kdeframever	5.249.0
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		kdoctools
 
 Summary:	Create documentation from DocBook
 Name:		kf5-%{kfname}
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	f497716b07ce124c908159d86095a301
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	aa64a9dc95881d7675380976888e6841
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	docbook-dtd45-xml
 BuildRequires:	docbook-style-xsl
@@ -34,13 +34,13 @@ BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	Qt6Core >= %{qtver}
+Requires:	Qt5Core >= %{qtver}
 Requires:	docbook-style-xsl
 Requires:	kf5-dirs
 Requires:	kf5-karchive >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt6dir		%{_libdir}/qt6
+%define		qt5dir		%{_libdir}/qt5
 
 %description
 Provides tools to generate documentation in various format from
@@ -51,7 +51,7 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt6Core-devel >= %{qtver}
+Requires:	Qt5Core-devel >= %{qtver}
 Requires:	cmake >= 3.16
 
 %description devel
@@ -80,7 +80,7 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
-%find_lang %{kfname}6
+%find_lang %{kfname}5
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,46 +88,62 @@ rm -rf $RPM_BUILD_ROOT
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{kfname}6.lang
+%files -f %{kfname}5.lang
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %{_bindir}/checkXML6
-%attr(755,root,root) %{_bindir}/meinproc6
-%ghost %{_libdir}/libKF6DocTools.so.6
-%attr(755,root,root) %{_libdir}/libKF6DocTools.so.*.*
-%{_docdir}/HTML/*/kdoctools6-common
-%dir %{_datadir}/kf6/kdoctools
-%{_datadir}/kf6/kdoctools/customization
-%{_mandir}/man1/checkXML6.1*
-%{_mandir}/man1/meinproc6.1*
-%{_mandir}/man7/kf6options.7*
-%{_mandir}/man7/qt6options.7*
-%{_mandir}/ca/man1/checkXML6.1*
-%{_mandir}/ca/man1/meinproc6.1*
-%{_mandir}/ca/man7/kf6options.7*
-%{_mandir}/ca/man7/qt6options.7*
-%{_mandir}/es/man1/checkXML6.1*
-%{_mandir}/es/man1/meinproc6.1*
-%{_mandir}/es/man7/qt6options.7*
-%{_mandir}/it/man1/checkXML6.1*
-%{_mandir}/it/man1/meinproc6.1*
-%{_mandir}/it/man7/kf6options.7*
-%{_mandir}/it/man7/qt6options.7*
-%{_mandir}/nl/man1/checkXML6.1*
-%{_mandir}/nl/man1/meinproc6.1*
-%{_mandir}/nl/man7/kf6options.7*
-%{_mandir}/nl/man7/qt6options.7*
-%{_mandir}/tr/man1/checkXML6.1*
-%{_mandir}/tr/man1/meinproc6.1*
-%{_mandir}/tr/man7/kf6options.7*
-%{_mandir}/tr/man7/qt6options.7*
-%{_mandir}/uk/man1/checkXML6.1*
-%{_mandir}/uk/man1/meinproc6.1*
-%{_mandir}/uk/man7/kf6options.7*
-%{_mandir}/uk/man7/qt6options.7*
+%attr(755,root,root) %{_bindir}/checkXML5
+%attr(755,root,root) %{_bindir}/meinproc5
+%ghost %{_libdir}/libKF5DocTools.so.5
+%attr(755,root,root) %{_libdir}/libKF5DocTools.so.*.*
+%{_docdir}/HTML/*/kdoctools5-common
+%dir %{_datadir}/kf5/kdoctools
+%{_datadir}/kf5/kdoctools/customization
+%{_mandir}/man1/checkXML5.1*
+%{_mandir}/man1/meinproc5.1*
+%{_mandir}/man7/kf5options.7*
+%{_mandir}/man7/qt5options.7*
+%lang(ca) %{_mandir}/ca/man1/checkXML5.1*
+%lang(ca) %{_mandir}/ca/man1/meinproc5.1*
+%lang(ca) %{_mandir}/ca/man7/kf5options.7*
+%lang(ca) %{_mandir}/ca/man7/qt5options.7*
+%lang(de) %{_mandir}/de/man1/checkXML5.1*
+%lang(de) %{_mandir}/de/man1/meinproc5.1*
+%lang(de) %{_mandir}/de/man7/kf5options.7*
+%lang(de) %{_mandir}/de/man7/qt5options.7*
+%lang(es) %{_mandir}/es/man1/checkXML5.1*
+%lang(es) %{_mandir}/es/man1/meinproc5.1*
+%lang(es) %{_mandir}/es/man7/kf5options.7*
+%lang(es) %{_mandir}/es/man7/qt5options.7*
+%lang(it) %{_mandir}/id/man1/checkXML5.1*
+%lang(it) %{_mandir}/it/man1/checkXML5.1*
+%lang(it) %{_mandir}/it/man1/meinproc5.1*
+%lang(it) %{_mandir}/it/man7/kf5options.7*
+%lang(it) %{_mandir}/it/man7/qt5options.7*
+%lang(nl) %{_mandir}/nl/man1/checkXML5.1*
+%lang(nl) %{_mandir}/nl/man1/meinproc5.1*
+%lang(nl) %{_mandir}/nl/man7/kf5options.7*
+%lang(nl) %{_mandir}/nl/man7/qt5options.7*
+%lang(pt) %{_mandir}/pt/man1/checkXML5.1*
+%lang(pt) %{_mandir}/pt/man1/meinproc5.1*
+%lang(pt) %{_mandir}/pt/man7/kf5options.7*
+%lang(pt) %{_mandir}/pt/man7/qt5options.7*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/checkXML5.1*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/meinproc5.1*
+%lang(pt_BR) %{_mandir}/pt_BR/man7/kf5options.7*
+%lang(pt_BR) %{_mandir}/pt_BR/man7/qt5options.7*
+%lang(ru) %{_mandir}/ru/man1/checkXML5.1*
+%lang(ru) %{_mandir}/ru/man7/qt5options.7*
+%lang(sv) %{_mandir}/sv/man1/checkXML5.1*
+%lang(sv) %{_mandir}/sv/man1/meinproc5.1*
+%lang(sv) %{_mandir}/sv/man7/kf5options.7*
+%lang(sv) %{_mandir}/sv/man7/qt5options.7*
+%lang(uk) %{_mandir}/uk/man1/checkXML5.1*
+%lang(uk) %{_mandir}/uk/man1/meinproc5.1*
+%lang(uk) %{_mandir}/uk/man7/kf5options.7*
+%lang(uk) %{_mandir}/uk/man7/qt5options.7*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF6/KDocTools
-%{_libdir}/cmake/KF6DocTools
-%{_libdir}/libKF6DocTools.so
+%{_includedir}/KF5/KDocTools
+%{_libdir}/cmake/KF5DocTools
+%{_libdir}/libKF5DocTools.so
